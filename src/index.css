@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --color-app-text: #10203d;
+  --color-app-muted: #5f6d88;
+  --color-app-accent: #1e63e9;
+  --color-app-accent-strong: #114ac4;
+  --color-app-teal: #0a8f82;
+  --color-app-danger: #c1344a;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    min-height: 100%;
+  }
+
+  body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    font-family: var(--font-sans);
+    color: var(--color-app-text);
+    background:
+      radial-gradient(circle at 15% 20%, rgba(26, 98, 233, 0.18), transparent 26%),
+      radial-gradient(circle at 85% 8%, rgba(10, 143, 130, 0.12), transparent 18%),
+      radial-gradient(circle at 50% 100%, rgba(35, 61, 116, 0.14), transparent 24%),
+      linear-gradient(180deg, #eef2ff 0%, #f7f9ff 100%);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body::before,
+  body::after {
+    content: '';
+    position: fixed;
+    inset: auto;
+    pointer-events: none;
+    z-index: -1;
+    border-radius: 999px;
+    filter: blur(12px);
+  }
+
+  body::before {
+    width: 20rem;
+    height: 20rem;
+    left: -8rem;
+    top: 12rem;
+    background: rgba(31, 103, 233, 0.14);
+  }
+
+  body::after {
+    width: 18rem;
+    height: 18rem;
+    right: -6rem;
+    bottom: -2rem;
+    background: rgba(10, 143, 130, 0.12);
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  input,
+  select,
+  textarea {
+    color: var(--color-app-text);
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: rgba(95, 109, 136, 0.72);
+  }
+
+  ::selection {
+    background: rgba(30, 99, 233, 0.18);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
